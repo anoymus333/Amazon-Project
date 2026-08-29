@@ -14,3 +14,14 @@ priceCents: 0,
     priceCents: 999,
 
 }];
+export function getDeliveryOptionById(deliveryOptionId) {
+    
+    let deliveryOptionMatching;
+    
+    deliveryOption.forEach((deliveryoption) => {
+        if(deliveryoption.id === deliveryOptionId){
+            deliveryOptionMatching = deliveryoption;
+        }
+    });
+    return deliveryOptionMatching || deliveryOption[0];
+}

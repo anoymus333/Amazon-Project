@@ -1,9 +1,10 @@
-export const cart = {
+function Cart(localStorageKey) {
+     const cart = {
     cartItems: undefined,
 
     loadFromStorage: function () {
-        this.cartItems = localStorage.getItem("cart-oop")
-            ? JSON.parse(localStorage.getItem("cart-oop"))
+        this.cartItems = localStorage.getItem("localStorageKey")
+            ? JSON.parse(localStorage.getItem("localStorageKey"))
             : [
                 {
                     productId: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
@@ -20,7 +21,7 @@ export const cart = {
 
     saveToStorage() {
         localStorage.setItem(
-            "cart-oop",
+            "localStorageKey",
             JSON.stringify(this.cartItems)
         );
     },
@@ -85,7 +86,11 @@ export const cart = {
         }
     }
 };
-
+return cart;
+}
+const cart = Cart('cart-oop');
+const businessCart = Cart('cart-business');
 cart.loadFromStorage();
+businessCart.loadFromStorage();
 console.log(cart);
-
+console.log(businessCart);
